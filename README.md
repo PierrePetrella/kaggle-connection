@@ -20,7 +20,7 @@ The only package required is the kaggle API:
 - extract your *username* and *key* for the *kaggle.json* file
 3. Install the plugin *(ADD PLUGIN > Fetch from Git repository)*
 - Repository url : https://github.com/PierrePetrella/kaggle-connection.git
-- Checkout : ```master``` or ```x.y.z``` branch
+- Checkout : ```master``` or ```vx.y.z``` branch
 - Path in repository : leave empty or ```/```
 4. Intall the required python environment *(PYTHON37)*
 5. Execute the macro : ```kaggle-competition-importer```
