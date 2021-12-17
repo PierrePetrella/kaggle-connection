@@ -1,6 +1,6 @@
 {
     "id": "kaggle-connection",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "meta": {
         "label": "Kaggle connection",
         "category": "Your category (optional)",
