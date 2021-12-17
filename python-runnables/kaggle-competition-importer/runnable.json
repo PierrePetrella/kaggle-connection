@@ -1,7 +1,7 @@
 /* This file is the descriptor for the python runnable kaggle-competition-importer */
 {
     "meta": {
-        "label": "kaggle-competition-importer marcro",
+        "label": "kaggle-competition-importer",
 
         "description": "This macro will import data and metadata from a given kaggle competition",
 
