@@ -1,17 +1,15 @@
 {
-    "id": "your-plugin-id",
-    "version": "0.1.0",
+    "id": "kaggle-connection",
+    "version": "0.0.1",
     "meta": {
-        "label": "Plugin template - Replace by your plugin label",
+        "label": "Kaggle connection",
         "category": "Your category (optional)",
-        "description": "Your description (keep it short and simple)",
-        "author": "Organization (firstName LASTNAME)",
-        "icon": "icon-font-awesome-3.2.1",
-        "licenseInfo": "Apache Software License",
-        "url": "https://www.dataiku.com/product/plugins/your-plugin-id/",
-        "tags": [
-            "myTag"
-        ],
-        "supportLevel": "NOT_SUPPORTED"
+        "description": "This plugin connects kaggle with DSS. You can inport a competition from kaggle an submit solutions to kaggle directly from DSS",
+        "author": "pierrepetrella",
+        "icon": "icon-beaker",
+        "tags": ["Kaggle","competition","connection","download"],
+        "url": "https://github.com/PierrePetrella/kaggle-connection",
+        "licenseInfo": "Apache Software License"
     }
 }
+
