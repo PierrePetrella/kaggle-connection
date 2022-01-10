@@ -79,21 +79,25 @@ class MyRunnable(Runnable):
         utils.empty_tmp_dir(self.tmp_dir)
         
         ### Build metadata dataset ###
-        competition = kaggle.api.competitions_list(search=self.challenge_ref)[0]
-        ds_vars = vars(competition)
-        metadata = []
-        values = []
-        for var in ds_vars:
-            metadata.append(var)
-            values.append(ds_vars[var])
-        df = pd.DataFrame()
-        df["metadata"] = metadata
-        df["values"]= values
-        dataset_name = "metadata"
-        builder = self.project.new_managed_dataset(dataset_name)
-        builder.with_store_into(self.connection)
-        dataset = builder.create(overwrite=True)
-        dataiku.Dataset(dataset_name).write_with_schema(df)
+        competition_list = kaggle.api.competitions_list(search=self.challenge_ref)
+        if (len(competition_list)>0):
+            competition = kaggle.api.competitions_list(search=self.challenge_ref)[0]
+            ds_vars = vars(competition)
+            metadata = []
+            values = []
+            for var in ds_vars:
+                metadata.append(var)
+                values.append(ds_vars[var])
+            df = pd.DataFrame()
+            df["metadata"] = metadata
+            df["values"]= values
+            dataset_name = "metadata"
+            builder = self.project.new_managed_dataset(dataset_name)
+            builder.with_store_into(self.connection)
+            dataset = builder.create(overwrite=True)
+            dataiku.Dataset(dataset_name).write_with_schema(df)
+        else:
+            print ("Can't extract competition metadata",competition_list)
         
         return "Kaggle competition data has been imported"
         
