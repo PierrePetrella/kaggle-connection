@@ -18,10 +18,13 @@ def create_dataset_from_csv(project, tmp_dir, connection):
         if file.endswith('.csv'):
             df = pd.read_csv(tmp_dir +"/"+ file)
             file_name = file[:-4]
-            builder = project.new_managed_dataset(file_name)
-            builder.with_store_into(connection)
-            dataset = builder.create(overwrite=True)
-            dataiku.Dataset(file_name).write_with_schema(df)
+            if file_name in [p["name"] for p in project.list_datasets()]:
+                print ("dataset already created")
+            else:
+                builder = project.new_managed_dataset(file_name)
+                builder.with_store_into(connection)
+                dataset = builder.create(overwrite=True)
+                dataiku.Dataset(file_name).write_with_schema(df)
 
             
 

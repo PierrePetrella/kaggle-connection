@@ -42,12 +42,7 @@ class MyRunnable(Runnable):
         return None
 
     def run(self, progress_callback):
-        """
-        Do stuff here. Can return a string or raise an exception.
-        The progress_callback is a function expecting 1 value: current progress
-        """
-        #raise Exception("unimplemented")
-        
+       
         ### Authentication to Kaggle ### 
         os.environ["KAGGLE_KEY"] = self.KAGGLE_KEY
         os.environ["KAGGLE_USERNAME"] = self.KAGGLE_USERNAME
@@ -81,7 +76,7 @@ class MyRunnable(Runnable):
         ### Build metadata dataset ###
         competition_list = kaggle.api.competitions_list(search=self.challenge_ref)
         if (len(competition_list)>0):
-            competition = kaggle.api.competitions_list(search=self.challenge_ref)[0]
+            competition = competition_list[0]
             ds_vars = vars(competition)
             metadata = []
             values = []
